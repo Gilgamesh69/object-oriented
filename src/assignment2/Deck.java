@@ -3,6 +3,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 public class Deck {
+	
 	private int DECK_SIZE = 52;
 	private Card[] deck;
 	

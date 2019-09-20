@@ -20,15 +20,15 @@ public class Card {
 	
 	public void setCardName() {
 		if(value == 11)
-			this.cardName = "Jack";
+			this.cardName = "Jack"+ " of "+ getSuit();
 		else if(value == 12)
-			this.cardName = "Queen";
+			this.cardName = "Queen"+ " of "+ getSuit();
 		else if(value == 13)
-			this.cardName = "King";
+			this.cardName = "King"+ " of "+ getSuit();
 		else if(value == 14)
-			this.cardName = "Ace";
+			this.cardName = "Ace" + " of "+ getSuit();
 		else {
-			this.cardName = String.valueOf(value);
+			this.cardName = String.valueOf(value) + " of "+ getSuit();
 			}
 			
 	}

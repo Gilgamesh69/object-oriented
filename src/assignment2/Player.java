@@ -6,7 +6,7 @@ import java.util.HashMap;
 public class Player {
 	private String name;
 	private int score;
-	private ArrayList<Card> hand;
+	public ArrayList<Card> hand;
 	
 	public Player() {
 		hand = new ArrayList<Card>();
@@ -18,6 +18,11 @@ public class Player {
 	public void addCardToHand(Card card) {
 		hand.add(card);
 	}
+	public void printHand() {
+		for(Card i : hand) {
+			System.out.println(i.getCardName());
+		}
+	}
 	/**
 	 * Remove card from hand
 	 * @param index
@@ -25,7 +30,9 @@ public class Player {
 	public void removeCardFromHand(int index) {
 		hand.remove(index);
 	}
-	
+	public void incrementScore() {
+		score++;
+	}
 	public void setScore(int score) {
 		this.score = score;
 	}

@@ -9,6 +9,7 @@ public class TwoPlayerWar {
 	public Player player1 = new Player();
 	public Player player2 = new Player();
 	public int TURN_LIMIT = 20;
+	public int war_pile = 0;
 	
 	public TwoPlayerWar() {
 		give_players_cards();
@@ -37,6 +38,9 @@ public class TwoPlayerWar {
 			}
 		}
 	}
+	/**
+	 * decide which player goes first
+	 */
 	public void coin_flip() {
 		if(Math.random() < 0.49) {
 			System.out.println("Player1!!!");
@@ -49,6 +53,14 @@ public class TwoPlayerWar {
 		System.out.println("Player2 plays :" + player2.hand.get(index).getCardName());
 		if(player1.hand.get(index).getValue() > player2.hand.get(index).getValue()) {
 			player1.incrementScore();
+			if(war_pile != 0) {
+				System.out.println("WAR TO P1");
+				System.out.println();
+				for(int i=0;i<war_pile;i++) {
+					player1.incrementScore();
+				}
+				resetWar();
+			}
 			System.out.println("ROUND TO P1");
 			System.out.println();
 			//player1.removeCardFromHand(index);
@@ -58,12 +70,28 @@ public class TwoPlayerWar {
 			player2.incrementScore();
 			System.out.println("ROUND TO P2");
 			System.out.println();
-			//player1.removeCardFromHand(index);
-			//player2.removeCardFromHand(index);
+			if(war_pile != 0) {
+				System.out.println("WAR TO P1");
+				System.out.println();
+				for(int i=0;i<war_pile;i++) {
+					player1.incrementScore();
+				}
+				resetWar();
+			}
 		}else {
 			System.out.println("WAR!! HUA! YEAH!");
+			war();
 		}
 	}
+	private void war() {
+		this.war_pile++;	
+	}
+	private void resetWar() {
+		this.war_pile = 0;
+	}
+	/**
+	 * play game
+	 */
 	public void play() {
 		for(int i = 0; i < TURN_LIMIT; i++) {
 			turn(i);

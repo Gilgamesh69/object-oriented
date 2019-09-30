@@ -68,12 +68,10 @@ public class ThreePlayerWar_WithReplacement extends War{
 	}
 	public int maxVal() {
 		int max = 0;
-		if(!PLAYER_TABLES.get(0).isEmpty() && !PLAYER_TABLES.get(1).isEmpty()){
 		if(PLAYER_TABLES.get(0).get(PLAYER_TABLES.get(0).size()-1).getValue() == PLAYER_TABLES.get(1).get(PLAYER_TABLES.get(0).size()-1).getValue()) return 4;
 		else if(PLAYER_TABLES.get(0).get(PLAYER_TABLES.get(0).size()-1).getValue() > PLAYER_TABLES.get(1).get(PLAYER_TABLES.get(0).size()-1).getValue()) {
 			max = 0;
 		}else{ max = 1; }
-		}
 		if(PLAYER_TABLES.size() == 3) {
 			if(max == PLAYER_TABLES.get(2).get(PLAYER_TABLES.get(2).size()-1).getValue()) return 4;
 			if(max > PLAYER_TABLES.get(2).get(PLAYER_TABLES.get(2).size()-1).getValue()) {

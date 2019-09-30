@@ -33,9 +33,10 @@ public class ThreePlayerWarTest {
 	}
 	@Test
 	public void testTurn() {
-		fail("Not yet implemented"); // TODO
+		assertEquals(false,war.p1_table.isEmpty());
+		assertEquals(false,war.p2_table.isEmpty());
+		assertEquals(false,war.p2_table.isEmpty());
 	}
-
 	@Test
 	public void testPlaceCards() {
 		war.placeCards();
@@ -49,7 +50,7 @@ public class ThreePlayerWarTest {
 
 	@Test
 	public void testClearTable() {
-		fail("Not yet implemented"); // TODO
+		war.clearTable(p);
 	}
 
 	@Test

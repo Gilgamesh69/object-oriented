@@ -5,7 +5,7 @@ import static org.junit.Assert.*;
 import org.junit.Test;
 
 public class CardTest {
-	public Card c = new Card("DIAMONDS",12);;
+	public Card c = new Card("DIAMONDS",12);
 	@Test
 	public void testGetSuit() {
 		assertEquals("DIAMONDS",c.getSuit());

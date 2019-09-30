@@ -5,35 +5,34 @@ import static org.junit.Assert.*;
 import org.junit.Test;
 
 public class PlayerTest {
-
+	Player p1 = new Player();
+	Card c = new Card("DIAMONDS",12);
 	@Test
 	public void testAddCardToHand() {
-		fail("Not yet implemented");
+		p1.addCardToHand(c);
+		assertEquals(1,p1.hand.size());
 	}
 
 	@Test
 	public void testAddToPointPile() {
-		fail("Not yet implemented");
+		p1.addToPointPile(c);
+		assertEquals(1,p1.pointsPile.size());
 	}
 
 	@Test
 	public void testRemoveCardFromHand() {
-		fail("Not yet implemented");
+		p1.removeCardFromHand(0);
+		assertEquals(0,p1.hand.size());
 	}
 
 	@Test
 	public void testGetScore() {
-		fail("Not yet implemented");
+		assertEquals(1,p1.getScore());
 	}
 
 	@Test
 	public void testSetName() {
-		fail("Not yet implemented");
+		p1.setName("BOB");
+		assertEquals("BOB",p1.getName());
 	}
-
-	@Test
-	public void testGetName() {
-		fail("Not yet implemented");
-	}
-
 }

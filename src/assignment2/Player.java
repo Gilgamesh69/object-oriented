@@ -5,11 +5,12 @@ import java.util.HashMap;
 
 public class Player {
 	private String name;
-	private int score;
 	public ArrayList<Card> hand;
-	
+	public ArrayList<Card> pointsPile;
+	public boolean player_in = true; //player still in game
 	public Player() {
 		hand = new ArrayList<Card>();
+		pointsPile = new ArrayList<Card>();
 	}
 	/**
 	 * add a card to players hand
@@ -20,24 +21,26 @@ public class Player {
 	}
 	public void printHand() {
 		for(Card i : hand) {
-			System.out.println(i.getCardName());
+			System.out.print(i.getCardName());
 		}
+	}
+	public void addToPointPile(Card c) {
+		pointsPile.add(c);
 	}
 	/**
 	 * Remove card from hand
 	 * @param index
 	 */
 	public void removeCardFromHand(int index) {
-		hand.remove(index);
-	}
-	public void incrementScore() {
-		score++;
-	}
-	public void setScore(int score) {
-		this.score = score;
+		if(hand.isEmpty()) {
+			this.player_in = false;
+		}else {
+			hand.remove(index);
+		}
+		
 	}
 	public int getScore() {
-		return score;
+		return pointsPile.size();
 	}
 	public void setName(String name) {
 		this.name = name;
@@ -45,5 +48,8 @@ public class Player {
 	public String getName() {
 		return name;
 	}
-
+	public void eliminated() {
+		System.out.println("PLAYER ELEMINATED" + name);
+		this.player_in = false;
+	}
 }

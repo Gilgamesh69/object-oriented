@@ -12,13 +12,14 @@ public class bench {
 		for(int i = 0;i<52;i++) {
 		//	System.out.println(arr[i].getCardName());
 		}
-		TwoPlayerWar war = new TwoPlayerWar();
+		ThreePlayerWar_WithReplacement war = new ThreePlayerWar_WithReplacement();
+
 		//war.give_players_cards();
 		System.out.println();
 		//war.player1.printHand();
 		System.out.println();
 		//war.player2.printHand();
-		
+		//ThreePlayerWar_noR war2 = new ThreePlayerWar_noR();
 	}
 
 }

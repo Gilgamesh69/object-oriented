@@ -8,7 +8,7 @@ public class Driver {
 		CommandController ctrl = new CommandController();
 		Scanner scnr = new Scanner(System.in);
 		System.out.println("INPUT COMMAND");
-		ctrl.addCommand(scnr.next());
+		ctrl.addCommand(scnr.nextLine());
 		ctrl.print();
 		scnr.close();
 	}

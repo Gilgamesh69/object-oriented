@@ -8,7 +8,8 @@ import java.awt.geom.Ellipse2D;
 public class Circle extends Shape{
 
     private int r;
-    public Circle() {
+    public Circle(int r) {
+    	this.r = r;
         super.setColor(Color.BLUE);
     }
 

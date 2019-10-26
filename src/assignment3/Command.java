@@ -19,8 +19,11 @@ public class Command {
 			this.command.add(i);
 		}
 	}
+	public String getIndex(int index) {
+		return command.get(index);
+	}
 	public void printCMD() {
 		for(String i : command)
-			System.out.print(i);
+			System.out.print(i + " ");
 	}
 }

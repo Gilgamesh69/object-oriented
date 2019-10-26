@@ -19,4 +19,8 @@ public class Command {
 			this.command.add(i);
 		}
 	}
+	public void printCMD() {
+		for(String i : command)
+			System.out.print(i);
+	}
 }

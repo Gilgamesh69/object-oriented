@@ -3,7 +3,7 @@ package assignment3;
 import java.awt.Color;
 
 public abstract class Shape {
-	
+	String type;
 	private String color;
 	private int x;
 	private int y;
@@ -29,5 +29,6 @@ public abstract class Shape {
     public String getColor() {
     	return color;
     }
+    public abstract void draw();
     
 }

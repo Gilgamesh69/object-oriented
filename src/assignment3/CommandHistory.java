@@ -11,9 +11,11 @@ public class CommandHistory {
 	public void addCommand(Command cmd) {
 		hist.add(cmd);
 	}
+	//updats current command to the last one entered
 	public Command getCommand() {
 		return hist.get(hist.size()-1);
 	}
+	//re,oves last element
 	public void remove() {
 		hist.remove(hist.size()-1);
 	}

@@ -4,29 +4,30 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.geom.Ellipse2D;
-
+/**
+ * Circle object
+ * @author Owner
+ *
+ */
 public class Circle extends Shape{
 
-    private int r;
-    public Circle(int r) {
-    	this.r = r;
-        super.setColor("BLUE");
-    }
-
- //   public void draw(Graphics g) {
- //       Graphics2D g2d = (Graphics2D) g;
- //       Ellipse2D.Double circle = new Ellipse2D.Double(super.getX(), super.getY(), r, r);
-//
-  //      g2d.setColor(super.getColor());
-    //    g2d.fill(circle);
-    //}
+    private int radius;
     
+    public Circle(int radius) {
+    	//set radius and defaults
+    	this.radius = radius;
+        super.setColor("BLUE");
+        super.type = "Circle";
+    }
     public void setSize(int r) {
-    	this.r = r;
+    	this.radius = r;
     }
     public int getRadius() {
-    	return r;
+    	return radius;
     }
-    
-
+    @Override
+	public void draw() {
+		System.out.println(super.type + ", Color: "+ super.getColor() +" ,Origin: ("+super.getX()+","+super.getY()+"), Radius: "+radius);
+		
+	}
 }

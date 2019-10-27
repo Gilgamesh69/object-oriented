@@ -12,7 +12,8 @@ public class Rectangle extends Shape{
     public Rectangle(int width,int height) {
     	this.width = width;
     	this.height = height;
-        super.setColor("");
+    	super.type = "Rectangle";
+        super.setColor("Red");
     }
     
     public void setWidth(int w) {
@@ -27,4 +28,12 @@ public class Rectangle extends Shape{
     public int getHeight() {
     	return height;
     }
+    /**
+     * Prints all shape information
+     */
+	@Override
+	public void draw() {
+		System.out.println(super.type + ", Color: "+ super.getColor() +" ,Origin: ("+super.getX()+","+super.getY()+"), Width: "+width+" , Height: "+height);
+		
+	}
 }

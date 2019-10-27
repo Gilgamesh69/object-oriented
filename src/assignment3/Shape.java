@@ -4,17 +4,16 @@ import java.awt.Color;
 
 public abstract class Shape {
 	
-	private Color color;
+	private String color;
 	private int x;
 	private int y;
 	
 	public Shape() {
 		setLocation(0,0);
 	}
-	
 	/* SETTERS */
-	public void setColor(Color c) {
-    	this.color = c;
+	public void setColor(String color) {
+    	this.color = color;
     }
     public void setLocation(int x, int y) {
     	this.x = x;
@@ -27,7 +26,7 @@ public abstract class Shape {
     public int getY() {
     	return y;
     }
-    public Color getColor() {
+    public String getColor() {
     	return color;
     }
     

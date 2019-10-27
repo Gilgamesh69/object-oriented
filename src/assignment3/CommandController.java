@@ -13,8 +13,8 @@ public class CommandController {
 	}
 	public void addCommand(String input) {
 		Command cmd = new Command(input);
-		current = cmd;
 		com_hist.addCommand(cmd);
+		current = com_hist.getCommand();
 	}
 	private void decodeCMD() {
 		if(current.getIndex(0).contains("SELECT")) {
@@ -36,7 +36,16 @@ public class CommandController {
 			shape.setLocation(Integer.parseInt(current.getIndex(1)), Integer.parseInt(current.getIndex(2)));
 		}
 		else if(current.getIndex(0).contains("COLOR")) {
-			shape.setColor(Color.current.getIndex(1));
+			shape.setColor(current.getIndex(1));
+		}
+		else if(current.getIndex(0).contains("UNDO")) {
+			
+			if(current.getIndex(0).contains("CREATE")) {
+				shapes.removeShape();
+				shape = shapes.getLast();
+			}
+			command = com
+			com_hist.remove();
 		}
 		
 	}

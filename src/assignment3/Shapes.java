@@ -12,11 +12,17 @@ public class Shapes {
 	public void addShape(Shape s) {
 		shapes.add(s);
 	}
-	public void removeShape(int index) {
+	public void deleteShape(int index) {
 		shapes.remove(index);
+	}
+	public void removeShape() {
+		shapes.remove(shapes.size()-1);
 	}
 	public Shape getShape(int index) {
 		return shapes.get(index);
+	}
+	public Shape getLast() {
+		return shapes.get(shapes.size()-1);
 	}
 
 }

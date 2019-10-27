@@ -11,4 +11,10 @@ public class CommandHistory {
 	public void addCommand(Command cmd) {
 		hist.add(cmd);
 	}
+	public Command getCommand() {
+		return hist.get(hist.size()-1);
+	}
+	public void remove() {
+		hist.remove(hist.size()-1);
+	}
 }

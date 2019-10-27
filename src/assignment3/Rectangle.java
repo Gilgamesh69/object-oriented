@@ -12,15 +12,9 @@ public class Rectangle extends Shape{
     public Rectangle(int width,int height) {
     	this.width = width;
     	this.height = height;
-        super.setColor(Color.RED);
+        super.setColor("");
     }
     
-    public void draw(Graphics g) {
-        Graphics2D g2d = (Graphics2D) g;
-        Rectangle2D.Double rectangle = new Rectangle2D.Double(super.getX(), super.getY(), width, height);
-        g2d.setColor(Color.YELLOW);
-        g2d.fill(rectangle);
-    }
     public void setWidth(int w) {
     	this.width = w;
     }

@@ -10,16 +10,16 @@ public class Circle extends Shape{
     private int r;
     public Circle(int r) {
     	this.r = r;
-        super.setColor(Color.BLUE);
+        super.setColor("BLUE");
     }
 
-    public void draw(Graphics g) {
-        Graphics2D g2d = (Graphics2D) g;
-        Ellipse2D.Double circle = new Ellipse2D.Double(super.getX(), super.getY(), r, r);
-
-        g2d.setColor(super.getColor());
-        g2d.fill(circle);
-    }
+ //   public void draw(Graphics g) {
+ //       Graphics2D g2d = (Graphics2D) g;
+ //       Ellipse2D.Double circle = new Ellipse2D.Double(super.getX(), super.getY(), r, r);
+//
+  //      g2d.setColor(super.getColor());
+    //    g2d.fill(circle);
+    //}
     
     public void setSize(int r) {
     	this.r = r;

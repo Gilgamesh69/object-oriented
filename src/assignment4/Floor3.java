@@ -7,19 +7,35 @@ public class Floor3 extends Floor{
 
 	@Override
 	public void clickButton1() {
-		// TODO Auto-generated method stub
+		if(super.doorsOpen) {
+			super.setDoorsOpen(false);
+			super.printDoorStatus();
+		}
+		super.setCurrentlyOn(false);
+		System.out.println("going down...");
 		
 	}
 
 	@Override
 	public void clickButton2() {
-		// TODO Auto-generated method stub
+		if(super.doorsOpen) {
+			super.setDoorsOpen(false);
+			super.printDoorStatus();
+		}
+		super.setCurrentlyOn(false);
+		System.out.println("going down...");
 		
 	}
 
 	@Override
 	public void clickButton3() {
-		// TODO Auto-generated method stub
+		if(super.doorsOpen) {
+			super.setDoorsOpen(false);
+			super.printDoorStatus();
+		}
+		if(super.currentlyOn) {
+			System.out.println("Nothing happens");
+		}
 		
 	}
 }

@@ -1,14 +1,42 @@
 package assignment44;
 
-public class ElevatorMediator {
+import java.util.ArrayList;
+
+public class ElevatorMediator implements Mediator{
+	
 	DoorWidget doors;
-	FloorFactory floors;
-	public ElevatorMediator(DoorWidget doors, FloorFactory floors) {
-		
+	ArrayList<Colleague> floors;
+	
+	public ElevatorMediator() {
+		doors = new DoorWidget();
+		floors = new ArrayList<Colleague>();
 	}
-	public void mediatButtonPress(int id) {
-		if
+	
+	public Floor pressButton(int buttonID, Floor current) {
+		if(doors.getDoorState() == true) {
+			doors.closeDoors();
+		}
+		if(buttonID == current.getPosition()) {
+			floors.get(buttonID).nothing();
+		}
+		else if(buttonID > current.getPosition()) {
+			
+			floors.get(buttonID).goingUp();
+			floors.get(buttonID).arrive();	
+			doors.openDoors();
+		}
+		else if(buttonID < current.getPosition()) {
+			floors.get(buttonID).goingDown();
+			floors.get(buttonID).arrive();	
+			doors.openDoors();
+		}
+		return (Floor) floors.get(buttonID);
 	}
-	public void addObserver(String button, Runnable observer) {
+
+	//add a floor
+	public void addFloor(Floor f) {
+		floors.add(f);
+	}
+
 
 }

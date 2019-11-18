@@ -2,7 +2,11 @@ package assignment44;
 
 public class DoorWidget {
 	
+	
 		private DoorStateContext door = new DoorStateContext();
+		
+		public DoorWidget() {
+		}
 		
 		public void openDoors() {
 			door.setState(true);
@@ -15,5 +19,6 @@ public class DoorWidget {
 		public boolean getDoorState() {
 			return door.getState();
 		}
+		
 
 }

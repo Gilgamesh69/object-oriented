@@ -20,8 +20,9 @@ public abstract class GameToken {
 	
 	public GameToken(Direction facing) {
 		this.setFrontFacing(facing);
+		sendBeamOut();
 	}
-	public abstract void setBeam();
+	public abstract void sendBeamOut();
 	
 	private void setOrientation() {
 		if(this.front == Direction.NORTH) {

@@ -1,16 +1,15 @@
 package assignment5;
 
-public class CheckPoint extends GameToken{
+public class NoneToken extends GameToken{
 
-	public CheckPoint(Direction facing) {
+	public NoneToken(Direction facing) {
 		super(facing);
-		super.setTokenName(Tokens.CHECK_POINT);
+		super.setTokenName(Tokens.NONE);
 	}
 
 	@Override
 	public void sendBeamOut() {
 		this.setBeamOut(this.getDirectionIn());
-		
 	}
 
 

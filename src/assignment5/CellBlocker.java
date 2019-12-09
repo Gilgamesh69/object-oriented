@@ -8,9 +8,10 @@ public class CellBlocker extends GameToken{
 	}
 
 	@Override
-	public void setBeam() {
-		// TODO Auto-generated method stub
+	public void sendBeamOut() {
+		this.setBeamOut(Direction.BLOCKED);
 		
 	}
+
 
 }

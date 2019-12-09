@@ -20,7 +20,7 @@ public class TargetMirror extends GameToken{
 	public void setTarget() {
 		this.targetIlluminated = true;
 	}
-	public void setBeam() {
+	public void sendBeamOut(){
 		if(this.getDirectionIn() == this.getSideOne()) {
 			this.setBeamOut(this.getBack());
 		}

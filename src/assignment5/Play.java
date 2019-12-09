@@ -8,6 +8,7 @@ public class Play {
 		grid.addToken(l, 3, 3);
 		TargetMirror tm = new TargetMirror(Direction.NORTH);
 		grid.addToken(tm, 1, 4);
+		MapBeam m = new MapBeam(grid);
 		grid.print();
 		//grid.printGrid();
 

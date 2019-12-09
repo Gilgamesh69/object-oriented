@@ -10,6 +10,7 @@ public class Deck {
 	private ArrayList<Card> deck;
 	
 	public Deck() {	
+		deck = new ArrayList<Card>();
 	}
 	public void addCardToDeck(Card c) {
 		deck.add(c);
@@ -38,16 +39,12 @@ public class Deck {
 			deck_count++;
 		}
 	}
-	private void setStandardDeck() {
+	public void setStandardDeck() {
 		for(int i = 2; i < 15; i++) {
-			Card heart = new Card("HEARTS",i);
-			Card diamond = new Card("DIAMONDS",i);
-			Card club = new Card("CLUBS",i);
-			Card spade = new Card("SPADES",i);
-			deck.add(heart);
-			deck.add( diamond);
-			deck.add(club);
-			deck.add(spade);
+			deck.add(new Card("HEARTS",i));
+			deck.add(new Card("DIAMONDS",i));
+			deck.add(new Card("CLUBS",i));
+			deck.add(new Card("SPADES",i));
 		}
 	}
 	public int getDECK_SIZE() {

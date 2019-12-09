@@ -5,20 +5,24 @@ import java.util.HashSet;
 import java.util.Set;
 
 public class ThreePlayerWar extends War{
-	public Deck deck = new Deck();
+	//public Deck deck = new Deck();
 	public Player player1 = new Player();
 	public Player player2 = new Player();
 	public Player player3 = new Player();
 	
 	
 	public int TURN_LIMIT = 18;
+	
 	public ArrayList<Card> p1_table = new ArrayList<Card>();
 	public ArrayList<Card> p2_table = new ArrayList<Card>();
 	public ArrayList<Card> p3_table = new ArrayList<Card>();
 	public ArrayList<ArrayList<Card>> PLAYER_TABLES;
 	private boolean WAR = false;
 	
-	public ThreePlayerWar() {
+	public ThreePlayerWar(Player p1, Player p2, Player p3) {
+		this.player1 =p1;
+		this.player2 = p2;
+		this.player3 = p3;
 		PLAYERS_IN = new ArrayList<Player>();
 		PLAYERS_IN.add(player1);
 		PLAYERS_IN.add(player2);
@@ -33,7 +37,7 @@ public class ThreePlayerWar extends War{
 		for(int i = 0; i < deck.getDECK_SIZE();) {
 			for(Player j : PLAYERS_IN) {
 				j.addCardToHand(deck.getCard(i));
-				System.out.println(i);
+				//System.out.println(i);
 				i++;
 				if(i >= deck.getDECK_SIZE()) {break;}
 			}
@@ -130,5 +134,8 @@ public class ThreePlayerWar extends War{
 		else if(player1.getScore() < player2.getScore() && player3.getScore() < player2.getScore()) { System.out.println(player2.getName()+ " WINS");}
 		else if(player1.getScore() < player3.getScore() && player3.getScore() > player2.getScore()) {System.out.println(player3.getName()+ " WINS");
 		}else {System.out.println("TIEEEEEE");}
+	}
+	public void setTurnLimit(int limit) {
+		this.TURN_LIMIT = limit;
 	}
 }

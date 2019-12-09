@@ -22,6 +22,7 @@ public class Player {
 	public void printHand() {
 		for(Card i : hand) {
 			System.out.print(i.getCardName());
+			System.out.print(" ");
 		}
 	}
 	public void addToPointPile(Card c) {

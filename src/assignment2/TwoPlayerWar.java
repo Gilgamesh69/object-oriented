@@ -6,17 +6,19 @@ import java.util.Set;
 
 public class TwoPlayerWar extends War{
 	
-	private Deck deck = new Deck();
-	public Player player1 = new Player();
-	public Player player2 = new Player();
+	//public Deck deck = new Deck();
+	public Player player1;
+	public Player player2;
 	public int TURN_LIMIT = 20;
 	public ArrayList<Card> p1_table = new ArrayList<Card>();
 	public ArrayList<Card> p2_table = new ArrayList<Card>();
 	private boolean WAR = false;
 	
-	public TwoPlayerWar() {
-		PLAYERS_IN.add(player1);
-		PLAYERS_IN.add(player2);
+	public TwoPlayerWar(Player p1, Player p2) {
+		this.player1 = p1;
+		this.player2 = p2;
+		PLAYERS_IN.add(this.player1);
+		PLAYERS_IN.add(this.player2);
 	}
 	@Override
 	public void turn() {

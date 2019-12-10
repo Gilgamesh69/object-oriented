@@ -6,7 +6,6 @@ public class NoneToken extends GameToken{
 		super(facing);
 		super.setTokenName(Tokens.NONE);
 	}
-
 	@Override
 	public void sendBeamOut() {
 		this.setBeamOut(this.getDirectionIn());

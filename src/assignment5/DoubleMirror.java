@@ -8,9 +8,20 @@ public class DoubleMirror extends GameToken{
 	}
 
 	@Override
-	public void sendBeamOut() {
-		// TODO Auto-generated method stub
+	public void sendBeamOut(){
 		
+		if(this.getDirectionIn() == this.getSideOne()) {
+			this.setBeamOut(this.getBack());
+		}
+		else if(this.getDirectionIn() == this.getBack()) {
+			this.setBeamOut(this.getSideOne());
+		}
+		else if(this.getDirectionIn() == this.getFront()) {
+			this.setBeamOut(Direction.BLOCKED);
+		}
+		else if(this.getDirectionIn() == this.getSideThree()) {
+			this.setBeamOut(Direction.BLOCKED);
+		}
 	}
 
 }

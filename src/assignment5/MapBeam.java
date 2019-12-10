@@ -14,7 +14,7 @@ public class MapBeam {
 		map();
 	}
 	private void map() {
-		//get starting tile
+		//get beam starting tile
 		for(GameTileColumn i : grid.cols) {
 			for(GameTile j : i.col) {
 				if(j.token != null) {
@@ -30,7 +30,8 @@ public class MapBeam {
 		int new_y = str_y;
 		GameTile cur_tile = grid.cols.get(str_x).getTile(str_y);
 		while(!beamStop) {
-			if(new_x >= grid.len_x-1 || new_y >= grid.len_y-1 || new_x <= 0 || new_y <= 0) {
+			if(new_x >= grid.len_x-1 || new_y >= grid.len_y-1 || new_x < 0 || new_y < 0) {
+				System.out.println("BREAKING");
 				break;
 			}
 			if(cur_tile.getBeamOut() == Direction.NORTH) {
@@ -38,8 +39,12 @@ public class MapBeam {
 				new_y--;
 				cur_tile = grid.cols.get(new_y).getTile(new_x);
 				cur_tile.setBeamIn(Direction.NORTH);
+				//cur_tile.token.setBeamIn(Direction.NORTH);
+				//cur_tile.token.sendBeamOut();
+				//System.out.println(cur_tile.token.getDirectionOut());
 				if(cur_tile.token == null) {
 					cur_tile.setBeamOut(Direction.NORTH);
+
 				}
 			}
 			else if(cur_tile.getBeamOut() == Direction.SOUTH) {
@@ -73,6 +78,7 @@ public class MapBeam {
 				beamStop = true;
 			}
 		}
+		System.out.println(beamPath);
 		
 	}
 	

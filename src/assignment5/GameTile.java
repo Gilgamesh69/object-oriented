@@ -27,9 +27,13 @@ public class GameTile {
 	}
 	public void setBeamIn(Direction in) {
 		this.beam_in = in;
+		this.token.setBeamIn(in);
+		this.token.sendBeamOut();
+		this.beam_out = this.token.getDirectionOut();
 	}
 	public void setBeamOut(Direction out) {
-		this.beam_out = out;
+		this.token.sendBeamOut();
+		this.beam_out = this.token.getDirectionOut();
 	}
 	public Direction getBeamIn() {
 		return this.beam_in;
@@ -62,7 +66,10 @@ public class GameTile {
 				cell = cell.concat("DM");
 			}
 			else if(this.token.getTokenName() == Tokens.CELL_BLOCKER) {
-				System.out.print("B");
+				cell = cell.concat("B");
+			}
+			else if(this.token.getTokenName() == Tokens.NONE) {
+				cell = cell.concat(" ");
 			}
 			else {
 				cell = cell.concat(" ");

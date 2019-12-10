@@ -15,6 +15,7 @@ public abstract class GameToken {
 	private Direction side1;
 	private Direction back;
 	private Direction side3;
+	
 	private Direction beamIn;
 	private Direction beamOut;
 	

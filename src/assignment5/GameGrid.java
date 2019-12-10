@@ -27,7 +27,10 @@ public class GameGrid {
 		//fill with game tiles
 		for(int i = 0; i < this.len_x; i++) {
 			for(int j = 0; j < this.len_y; j++) {
-				cols.get(i).addToCol(new GameTile(i,j));
+				GameTile gt = new GameTile(i,j);
+				//GameToken t = new NoneToken(Direction.NORTH);
+				//gt.addToken(t);
+				cols.get(i).addToCol(gt);
 				rows.get(j).addToRow(cols.get(i).getTile(j));
 			}
 		}

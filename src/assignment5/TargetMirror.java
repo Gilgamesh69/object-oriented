@@ -19,8 +19,10 @@ public class TargetMirror extends GameToken{
 	 */
 	public void setTarget() {
 		this.targetIlluminated = true;
+		System.out.println("TARGET HIT");
 	}
 	public void sendBeamOut(){
+		
 		if(this.getDirectionIn() == this.getSideOne()) {
 			this.setBeamOut(this.getBack());
 		}
@@ -33,6 +35,6 @@ public class TargetMirror extends GameToken{
 		}
 		else if(this.getDirectionIn() == this.getSideThree()) {
 			this.setBeamOut(Direction.BLOCKED);
-		}	
+		}
 	}
 }

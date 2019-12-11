@@ -17,10 +17,10 @@ public class DoubleMirror extends GameToken{
 			this.setBeamOut(this.getSideOne());
 		}
 		else if(this.getDirectionIn() == this.getFront()) {
-			this.setBeamOut(Direction.BLOCKED);
+			this.setBeamOut(this.getSideThree());
 		}
 		else if(this.getDirectionIn() == this.getSideThree()) {
-			this.setBeamOut(Direction.BLOCKED);
+			this.setBeamOut(this.getFront());
 		}
 	}
 

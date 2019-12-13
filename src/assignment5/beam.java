@@ -1,31 +1,19 @@
 package assignment5;
-
 import java.util.ArrayList;
 
-public class MapBeam {
+public class beam {
 	private GameGrid grid;
 	public int str_x, str_y;
 	public ArrayList<Direction> beamPath;
 	public boolean beamStop = false;
 	
-	public MapBeam(GameGrid grid) {
+	public beam(GameGrid grid,int start_x,int start_y) {
 		this.grid = grid;
 		this.beamPath = new ArrayList<Direction>();
 		map();
 	}
-	private void map() {
-		//get beam starting tile
-		for(GameTileColumn i : grid.cols) {
-			for(GameTile j : i.col) {
-				if(j.token != null) {
-					if(j.token.getTokenName() == Tokens.LASER) {
-						str_x = j.getX();
-						str_y = j.getY();
-						break;
-					}
-				}
-			}
-		}
+	public void map() {
+			
 		int new_x = str_x;
 		int new_y = str_y;
 		GameTile cur_tile = grid.cols.get(str_x).getTile(str_y);
@@ -39,10 +27,9 @@ public class MapBeam {
 				new_y--;
 				cur_tile = grid.cols.get(new_y).getTile(new_x);
 				cur_tile.setBeamIn(Direction.NORTH);
-
 				if(cur_tile.token == null) {
 					cur_tile.setBeamOut(Direction.NORTH);
-
+	
 				}
 			}
 			else if(cur_tile.getBeamOut() == Direction.SOUTH) {
@@ -79,6 +66,5 @@ public class MapBeam {
 		System.out.println(beamPath);
 		
 	}
-	
 
 }

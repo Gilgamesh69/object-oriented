@@ -6,6 +6,7 @@ public class GameTile {
 	public GameToken token = null;
 	private Direction beam_in = Direction.BLOCKED;
 	private Direction  beam_out = Direction.BLOCKED;
+	
 	public GameTile(int x, int y) {
 		this.position_x = x;
 		this.position_y = y;
@@ -15,6 +16,11 @@ public class GameTile {
 	public void addToken(GameToken newToken) {
 		this.token = newToken;
 		this.beam_out = this.token.getDirectionOut();
+		
+		if(this.token.getTokenName() == Tokens.LASER || this.token.getTokenName() == Tokens.BEAM_SPLITTER) {
+			this.token.setX(this.position_x);
+			this.token.setY(this.position_y);
+		}
 	}
 	public void removeToken() {
 		this.token = null;

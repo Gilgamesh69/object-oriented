@@ -15,10 +15,10 @@ public abstract class GameToken {
 	private Direction side1;
 	private Direction back;
 	private Direction side3;
-	
 	private Direction beamIn;
 	private Direction beamOut;
-	
+	public int x;
+	public int y;
 	public GameToken(Direction facing) {
 		this.setFrontFacing(facing);
 		sendBeamOut();
@@ -80,5 +80,11 @@ public abstract class GameToken {
 	public Direction getSideThree() {
 		return this.side3;
 	}
-
+	public void setX(int x) {
+		this.x = x;
+		
+	}
+	public void setY(int y) {
+		this.y = y;
+	}
 }

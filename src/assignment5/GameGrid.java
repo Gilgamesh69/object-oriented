@@ -5,38 +5,38 @@ import java.util.ArrayList;
 public class GameGrid {
 	public int len_x;
 	public int len_y;
+	
 	public ArrayList<GameTileRow> rows;
 	public ArrayList<GameTileColumn> cols;
-	public GameGrid(int x, int y) {
-		this.len_x = x;
-		this.len_y = y;
-		
+	private ArrayList<ArrayList<LoadToken>> tokens;
+	private Laser laser;
+	
+	public GameGrid(ArrayList<ArrayList<LoadToken>> tokens) {
+		this.len_x = tokens.get(0).size();
+		this.len_y = len_x;
+		this.tokens = tokens;
 		this.rows = new ArrayList<GameTileRow>();
 		this.cols = new ArrayList<GameTileColumn>();
 		makeGrid();
 	}
+	/**
+	 * Make a grid of tokens
+	 */
 	private void makeGrid() {
-		//make columns
+		
 		for(int i = 0; i < this.len_x; i++) {
 			cols.add(new GameTileColumn(i));
-		}
-		//make rows
-		for(int j = 0; j < this.len_y; j++) {
-			rows.add(new GameTileRow(j));
-		}
-		//fill with game tiles
-		for(int i = 0; i < this.len_x; i++) {
 			for(int j = 0; j < this.len_y; j++) {
-				GameTile gt = new GameTile(i,j);
 				//GameToken t = new NoneToken(Direction.NORTH);
 				//gt.addToken(t);
-				cols.get(i).addToCol(gt);
-				rows.get(j).addToRow(cols.get(i).getTile(j));
+				
+				cols.get(i).addToCol(decodeLoadToken(tokens.get(i).get(j)));
+				//rows.get(j).addToRow(cols.get(i).getTile(j));
 			}
 		}
 	}
 	public void addToken(GameToken token, int x, int y) {
-		this.cols.get(x).getTile(y).addToken(token);
+		//this.cols.get(x).getTile(y).addToken(token);
 		//System.out.println(this.grid[x][y].token.getTokenName());
 		
 	}
@@ -54,33 +54,36 @@ public class GameGrid {
 			System.out.println();
 		}
 	}
-	/**
-	public void printGrid() {
-		for(int i = 0; i < this.len_x; i++) {
-			for(int j = 0; j < this.len_y; j++) {
-				if(this.grid[i][j].token != null) {
-					if(this.grid[i][j].token.getTokenName().equals(Tokens.LASER)) {
-						System.out.print(" [L] ");
-					}
-					else if(this.grid[i][j].token.getTokenName() == Tokens.TARGET_MIRROR) {
-						System.out.print(" [TM] ");
-					}
-					else if(this.grid[i][j].token.getTokenName() == Tokens.CHECK_POINT) {
-						System.out.print(" [CP] ");
-					}
-					else if(this.grid[i][j].token.getTokenName() == Tokens.DOUBLE_MIRROR) {
-						System.out.print(" [DM] ");
-					}
-					else if(this.grid[i][j].token.getTokenName() == Tokens.CELL_BLOCKER) {
-						System.out.print(" [B] ");
-					}
-				}else {
-				System.out.print(" [ ] ");
-				}
-			}
-			System.out.println();
+	private GameToken decodeLoadToken(LoadToken l) {
+		GameToken t;
+		if(l.getToken() == Tokens.LASER) {
+			t = new Laser(l.getOrientation(),l.getX(),l.getY());
+			laser = (Laser) t;
 		}
+		else if(l.getToken() == Tokens.BEAM_SPLITTER) {
+			t = new BeamSplitter(l.getOrientation(),l.getX(),l.getY());
+		}
+		else if(l.getToken() == Tokens.CELL_BLOCKER) {
+			t = new CellBlocker(l.getOrientation(),l.getX(),l.getY());
+		}
+		else if(l.getToken() == Tokens.CHECK_POINT) {
+			t = new CheckPoint(l.getOrientation(),l.getX(),l.getY());
+		}
+		else if(l.getToken() == Tokens.DOUBLE_MIRROR) {
+			t = new DoubleMirror(l.getOrientation(),l.getX(),l.getY());
+		}
+		else if(l.getToken() == Tokens.NONE) {
+			t = new NoneToken(l.getOrientation(),l.getX(),l.getY());
+		}
+		else if(l.getToken() == Tokens.TARGET_MIRROR) {
+			t = new TargetMirror(l.getOrientation(),l.getX(),l.getY());
+		}else {
+			t = new NoneToken(l.getOrientation(),l.getX(),l.getY());
+		}
+		return t;
 	}
-	**/
+	public void startLaser() {
+		laser.fire(this);
+	}
 
 }

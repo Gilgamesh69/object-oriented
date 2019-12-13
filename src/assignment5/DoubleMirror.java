@@ -2,8 +2,8 @@ package assignment5;
 
 public class DoubleMirror extends GameToken{
 
-	public DoubleMirror(Direction facing) {
-		super(facing);
+	public DoubleMirror(Direction facing, int x, int y) {
+		super(facing, x, y);
 		super.setTokenName(Tokens.DOUBLE_MIRROR);
 	}
 

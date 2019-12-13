@@ -9,8 +9,8 @@ public class BeamSplitter extends GameToken{
 	 *	 
 	 * @param facing
 	 */
-	public BeamSplitter(Direction facing) {
-		super(facing);
+	public BeamSplitter(Direction facing, int x, int y) {
+		super(facing, x, y);
 		// TODO Auto-generated constructor stub
 	}
 

@@ -5,6 +5,7 @@ public class beam {
 	private GameGrid grid;
 	public int str_x, str_y;
 	public ArrayList<Direction> beamPath;
+	public Direction current;
 	public boolean beamStop = false;
 	
 	public beam(GameGrid grid,int start_x,int start_y) {
@@ -16,48 +17,35 @@ public class beam {
 			
 		int new_x = str_x;
 		int new_y = str_y;
-		GameTile cur_tile = grid.cols.get(str_x).getTile(str_y);
+		GameToken cur_tile = grid.cols.get(str_x).getTile(str_y);
 		while(!beamStop) {
 			if(new_x >= grid.len_x-1 || new_y >= grid.len_y-1 || new_x < 0 || new_y < 0) {
 				System.out.println("BREAKING");
 				break;
 			}
-			if(cur_tile.getBeamOut() == Direction.NORTH) {
-				beamPath.add(cur_tile.getBeamOut());
+			if(cur_tile.getDirectionOut() == Direction.NORTH) {
+				beamPath.add(cur_tile.getDirectionOut());
 				new_y--;
 				cur_tile = grid.cols.get(new_y).getTile(new_x);
-				cur_tile.setBeamIn(Direction.NORTH);
-				if(cur_tile.token == null) {
-					cur_tile.setBeamOut(Direction.NORTH);
-	
-				}
+				cur_tile.setBeam(this);
 			}
-			else if(cur_tile.getBeamOut() == Direction.SOUTH) {
-				beamPath.add(cur_tile.getBeamOut());
+			else if(cur_tile.getDirectionOut() == Direction.SOUTH) {
+				beamPath.add(cur_tile.getDirectionOut());
 				new_y++;
 				cur_tile = grid.cols.get(new_y).getTile(new_x);
 				cur_tile.setBeamIn(Direction.SOUTH);
-				if(cur_tile.token == null) {
-					cur_tile.setBeamOut(Direction.SOUTH);
-				}
 			}
-			else if(cur_tile.getBeamOut() == Direction.EAST) {
-				beamPath.add(cur_tile.getBeamOut());
+			else if(cur_tile.getDirectionOut() == Direction.EAST) {
+				beamPath.add(cur_tile.getDirectionOut());
 				new_x--;
 				cur_tile = grid.cols.get(new_y).getTile(new_x);
 				cur_tile.setBeamIn(Direction.EAST);
-				if(cur_tile.token == null) {
-					cur_tile.setBeamOut(Direction.EAST);
-				}
 			}
-			else if(cur_tile.getBeamOut() == Direction.WEST) {
-				beamPath.add(cur_tile.getBeamOut());
+			else if(cur_tile.getDirectionOut() == Direction.WEST) {
+				beamPath.add(cur_tile.getDirectionOut());
 				new_x++;
 				cur_tile = grid.cols.get(new_y).getTile(new_x);
 				cur_tile.setBeamIn(Direction.WEST);
-				if(cur_tile.token == null) {
-					cur_tile.setBeamOut(Direction.WEST);
-				}
 			}
 			else {
 				beamStop = true;
@@ -65,6 +53,12 @@ public class beam {
 		}
 		System.out.println(beamPath);
 		
+	}
+	public void setCurrentDirection(Direction d) {
+		this.current = d;
+	}
+	public Direction getCurrentDirection() {
+		return this.current;
 	}
 
 }

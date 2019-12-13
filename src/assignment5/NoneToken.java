@@ -2,8 +2,8 @@ package assignment5;
 
 public class NoneToken extends GameToken{
 
-	public NoneToken(Direction facing) {
-		super(facing);
+	public NoneToken(Direction facing, int x, int y) {
+		super(facing, x, y);
 		super.setTokenName(Tokens.NONE);
 	}
 	@Override

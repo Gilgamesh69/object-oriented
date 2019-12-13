@@ -3,8 +3,8 @@ package assignment5;
 public class Laser extends GameToken{
 
 
-	public Laser(Direction facing) {
-		super(facing);
+	public Laser(Direction facing, int x, int y) {
+		super(facing, x, y);
 		super.setTokenName(Tokens.LASER);
 	}
 	public void sendBeamOut() {
@@ -12,7 +12,7 @@ public class Laser extends GameToken{
 	}
 
 	public void fire(GameGrid g) {
-		beam b = new beam(g,this.x,this.y);
+		beam b = new beam(g,this.getX(),this.getY());
 		b.map();
 	}
 	

@@ -4,19 +4,19 @@ import java.util.ArrayList;
 
 public class GameTileColumn {
 	int columnNum;
-	public ArrayList<GameTile> col;
+	public ArrayList<GameToken> col;
 	
 	public GameTileColumn(int colN) {
 		this.columnNum = colN;
-		col = new ArrayList<GameTile>();
+		col = new ArrayList<GameToken>();
 	}
-	public void addToCol(GameTile g) {
+	public void addToCol(GameToken g) {
 		col.add(g);
 	}
 	public void removeTile(int i) {
 		col.remove(i);
 	}
-	public GameTile getTile(int i) {
+	public GameToken getTile(int i) {
 		return col.get(i);
 	}
 

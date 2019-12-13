@@ -9,8 +9,8 @@ public class TargetMirror extends GameToken{
 	 * Back = Mirror
 	 * Side 3 = Blocked
 	 */
-	public TargetMirror(Direction facing) {
-		super(facing);
+	public TargetMirror(Direction facing, int x, int y) {
+		super(facing, x, y);
 		super.setTokenName(Tokens.TARGET_MIRROR);
 	}
 	/**

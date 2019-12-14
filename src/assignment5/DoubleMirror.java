@@ -11,16 +11,16 @@ public class DoubleMirror extends GameToken{
 	public void sendBeamOut(){
 		
 		if(this.getDirectionIn() == this.getSideOne()) {
-			this.setBeamOut(this.getBack());
+			this.setBeamOut(this.getFront());
 		}
 		else if(this.getDirectionIn() == this.getBack()) {
-			this.setBeamOut(this.getSideOne());
-		}
-		else if(this.getDirectionIn() == this.getFront()) {
 			this.setBeamOut(this.getSideThree());
 		}
+		else if(this.getDirectionIn() == this.getFront()) {
+			this.setBeamOut(this.getSideOne());
+		}
 		else if(this.getDirectionIn() == this.getSideThree()) {
-			this.setBeamOut(this.getFront());
+			this.setBeamOut(this.getBack());
 		}
 	}
 

@@ -27,7 +27,7 @@ public class MapBeam {
 			cur_tile.sendBeamOut();
 			//System.out.println(cur_tile.getDirectionOut());
 			//System.out.println(cur_tile.getDirectionOut());
-			if(new_x >= grid.len_x|| new_y >= grid.len_y || new_x < 0 || new_y < 0) {
+			if(new_x >= grid.len_x || new_y >= grid.len_y || new_x < 0 || new_y < 0) {
 				System.out.println("BREAKING");
 				break;
 			}

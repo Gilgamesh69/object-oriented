@@ -39,7 +39,49 @@ public class LoadCard {
 			catch (FileNotFoundException e){
 				System.out.println("No such file");
 			}
-		}	
+		}
+		else if(input.equalsIgnoreCase("2")){
+			try {
+				scan = new Scanner(new File("12.txt"));
+				while(scan.hasNextLine()) {
+					String l = scan.nextLine();
+					if(l.contains("Solution")){
+						int xPos = 0;
+						while(scan.hasNextLine()){
+							String line = scan.nextLine(); 
+							parseCard(line, xPos);
+							//System.out.println(tokens.get(xPos).get(xPos).getPosX());
+							xPos++;
+						}
+					}
+
+				}	
+			}	
+			catch (FileNotFoundException e){
+				System.out.println("No such file");
+			}
+		}
+		else if(input.equalsIgnoreCase("3")){
+			try {
+				scan = new Scanner(new File("25.txt"));
+				while(scan.hasNextLine()) {
+					String l = scan.nextLine();
+					if(l.contains("Solution")){
+						int xPos = 0;
+						while(scan.hasNextLine()){
+							String line = scan.nextLine(); 
+							parseCard(line, xPos);
+							//System.out.println(tokens.get(xPos).get(xPos).getPosX());
+							xPos++;
+						}
+					}
+
+				}	
+			}
+			catch (FileNotFoundException e){
+				System.out.println("No such file");
+			}
+		}
 		else{
 			while(!input.equalsIgnoreCase("STOP")){
 				input = scan.nextLine();

@@ -24,13 +24,14 @@ public class TargetMirror extends GameToken{
 	public void sendBeamOut(){
 		
 		if(this.getDirectionIn() == this.getSideOne()) {
+			setTarget();
 			this.setBeamOut(Direction.BLOCKED);
 		}
 		else if(this.getDirectionIn() == this.getBack()) {
 			this.setBeamOut(this.getSideThree());
 		}
 		else if(this.getDirectionIn() == this.getFront()) {
-			setTarget();
+			
 			this.setBeamOut(Direction.BLOCKED);
 		}
 		else if(this.getDirectionIn() == this.getSideThree()) {

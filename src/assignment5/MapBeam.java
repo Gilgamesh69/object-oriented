@@ -15,62 +15,46 @@ public class MapBeam {
 	}
 	private void map() {
 		//get beam starting tile
-		for(GameTileColumn i : grid.cols) {
-			for(GameTile j : i.col) {
-				if(j.token != null) {
-					if(j.token.getTokenName() == Tokens.LASER) {
-						str_x = j.getX();
-						str_y = j.getY();
-						break;
-					}
-				}
-			}
-		}
 		int new_x = str_x;
 		int new_y = str_y;
-		GameTile cur_tile = grid.cols.get(str_x).getTile(str_y);
+		GameToken cur_tile = grid.cols.get(grid.laser.getX()).getTile(grid.laser.getY());
+		//System.out.println(grid.getCol(0).getTile(0).getTokenName());
+		//System.out.println(grid.cols.get(4).getTile(0).getTokenName());
+		//System.out.println(grid.laser.getX());
+		//System.out.println(grid.laser.getY());
 		while(!beamStop) {
-			if(new_x >= grid.len_x-1 || new_y >= grid.len_y-1 || new_x < 0 || new_y < 0) {
+			//
+			cur_tile.sendBeamOut();
+			//System.out.println(cur_tile.getDirectionOut());
+			//System.out.println(cur_tile.getDirectionOut());
+			if(new_x >= grid.len_x|| new_y >= grid.len_y || new_x < 0 || new_y < 0) {
 				System.out.println("BREAKING");
 				break;
 			}
-			if(cur_tile.getBeamOut() == Direction.NORTH) {
-				beamPath.add(cur_tile.getBeamOut());
-				new_y--;
+			if(cur_tile.getDirectionOut() == Direction.NORTH) {
+				beamPath.add(cur_tile.getDirectionOut());
+				new_y++;
 				cur_tile = grid.cols.get(new_y).getTile(new_x);
 				cur_tile.setBeamIn(Direction.NORTH);
 
-				if(cur_tile.token == null) {
-					cur_tile.setBeamOut(Direction.NORTH);
-
-				}
 			}
-			else if(cur_tile.getBeamOut() == Direction.SOUTH) {
-				beamPath.add(cur_tile.getBeamOut());
-				new_y++;
+			else if(cur_tile.getDirectionOut() == Direction.SOUTH) {
+				beamPath.add(cur_tile.getDirectionOut());
+				new_y--;
 				cur_tile = grid.cols.get(new_y).getTile(new_x);
 				cur_tile.setBeamIn(Direction.SOUTH);
-				if(cur_tile.token == null) {
-					cur_tile.setBeamOut(Direction.SOUTH);
-				}
 			}
-			else if(cur_tile.getBeamOut() == Direction.EAST) {
-				beamPath.add(cur_tile.getBeamOut());
-				new_x--;
-				cur_tile = grid.cols.get(new_y).getTile(new_x);
-				cur_tile.setBeamIn(Direction.EAST);
-				if(cur_tile.token == null) {
-					cur_tile.setBeamOut(Direction.EAST);
-				}
-			}
-			else if(cur_tile.getBeamOut() == Direction.WEST) {
-				beamPath.add(cur_tile.getBeamOut());
+			else if(cur_tile.getDirectionOut() == Direction.EAST) {
+				beamPath.add(cur_tile.getDirectionOut());
 				new_x++;
 				cur_tile = grid.cols.get(new_y).getTile(new_x);
+				cur_tile.setBeamIn(Direction.EAST);
+			}
+			else if(cur_tile.getDirectionOut() == Direction.WEST) {
+				beamPath.add(cur_tile.getDirectionOut());
+				new_x--;
+				cur_tile = grid.cols.get(new_y).getTile(new_x);
 				cur_tile.setBeamIn(Direction.WEST);
-				if(cur_tile.token == null) {
-					cur_tile.setBeamOut(Direction.WEST);
-				}
 			}
 			else {
 				beamStop = true;

@@ -9,7 +9,7 @@ public class GameGrid {
 	public ArrayList<GameTileRow> rows;
 	public ArrayList<GameTileColumn> cols;
 	private ArrayList<ArrayList<LoadToken>> tokens;
-	private Laser laser;
+	public Laser laser;
 	
 	public GameGrid(ArrayList<ArrayList<LoadToken>> tokens) {
 		this.len_x = tokens.get(0).size();
@@ -27,9 +27,6 @@ public class GameGrid {
 		for(int i = 0; i < this.len_x; i++) {
 			cols.add(new GameTileColumn(i));
 			for(int j = 0; j < this.len_y; j++) {
-				//GameToken t = new NoneToken(Direction.NORTH);
-				//gt.addToken(t);
-				
 				cols.get(i).addToCol(decodeLoadToken(tokens.get(i).get(j)));
 				//rows.get(j).addToRow(cols.get(i).getTile(j));
 			}
@@ -58,7 +55,7 @@ public class GameGrid {
 		GameToken t;
 		if(l.getToken() == Tokens.LASER) {
 			t = new Laser(l.getOrientation(),l.getX(),l.getY());
-			laser = (Laser) t;
+			laser = new Laser(l.getOrientation(),l.getX(),l.getY());
 		}
 		else if(l.getToken() == Tokens.BEAM_SPLITTER) {
 			t = new BeamSplitter(l.getOrientation(),l.getX(),l.getY());

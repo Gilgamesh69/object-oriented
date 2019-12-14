@@ -24,17 +24,19 @@ public class TargetMirror extends GameToken{
 	public void sendBeamOut(){
 		
 		if(this.getDirectionIn() == this.getSideOne()) {
-			this.setBeamOut(this.getBack());
+			this.setBeamOut(Direction.BLOCKED);
 		}
 		else if(this.getDirectionIn() == this.getBack()) {
-			this.setBeamOut(this.getSideOne());
+			this.setBeamOut(this.getSideThree());
 		}
 		else if(this.getDirectionIn() == this.getFront()) {
 			setTarget();
 			this.setBeamOut(Direction.BLOCKED);
 		}
 		else if(this.getDirectionIn() == this.getSideThree()) {
-			this.setBeamOut(Direction.BLOCKED);
+			this.setBeamOut(this.getBack());
+			//System.out.println(this.getDirectionOut());
 		}
+		
 	}
 }

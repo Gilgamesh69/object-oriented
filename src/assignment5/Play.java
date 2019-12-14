@@ -4,11 +4,11 @@ public class Play {
 
 	public static void main(String[] args) {
 		LoadCard lc = new LoadCard();
-		//lc.print();
-		GameGrid grid = new GameGrid(lc.getLoadedTokens());
+		GameGrid grid = new GameGrid(lc.getTokens());
 		grid.print();
-		grid.startLaser();
+		MapBeam m = new MapBeam(grid);
 		grid.print();
+
 		/**
 		Laser l = new Laser(Direction.NORTH);
 		grid.addToken(l, 3, 3);

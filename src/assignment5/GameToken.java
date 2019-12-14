@@ -91,7 +91,7 @@ public abstract class GameToken {
 	}
 	public void setBeamOut(Direction newOut) {
 		this.beamOut = newOut;
-		this.b.setCurrentDirection(newOut);
+		//this.b.setCurrentDirection(newOut);
 	}
 	public void setFrontFacing(Direction newDir) {
 		this.front = newDir;
@@ -117,14 +117,7 @@ public abstract class GameToken {
 	}
 	public void print() {
 		String cell = "|";
-		if(this.beamIn != Direction.BLOCKED) {
-			if(this.beamOut == Direction.EAST || this.beamOut == Direction.WEST) {
-				cell = cell.concat("**");
-			}
-			else if(this.beamOut == Direction.NORTH || this.beamOut == Direction.SOUTH) {
-				cell = cell.concat("**");
-			}
-		}
+		
 			
 		if(this.name.equals(Tokens.LASER)) {
 			cell = cell.concat("L");
@@ -148,6 +141,16 @@ public abstract class GameToken {
 			cell = cell.concat(" ");
 		}
 		cell = cell.concat("|");
+		if(this.beamIn != Direction.BLOCKED) {
+			if(this.beamOut == Direction.EAST || this.beamOut == Direction.WEST) {
+				cell = cell.concat("**");
+			}
+			else if(this.beamOut == Direction.NORTH || this.beamOut == Direction.SOUTH) {
+				cell = cell.concat("**");
+			}else {
+				cell = cell.concat("  ");
+			}
+		}
 		System.out.print(cell);
 	}
 }
